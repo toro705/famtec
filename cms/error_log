@@ -1,0 +1,67 @@
+[21-Oct-2016 17:29:23 America/Chicago] PHP Fatal error:  Uncaught exception 'mysqli_sql_exception' with message 'Access denied for user 'bibliografika_u'@'localhost' (using password: YES)' in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php:76
+Stack trace:
+#0 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(76): mysqli_connect('localhost', 'bibliografika_u', 'Sw2eg3DGUX', 'bibliografika_c...')
+#1 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(91): CI_DB_mysqli_driver->db_connect()
+#2 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(115): CI_DB_mysqli_driver->db_pconnect()
+#3 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB.php(148): CI_DB_driver->initialize()
+#4 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/core/Loader.php(346): DB('', NULL)
+#5 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php on line 76
+[21-Oct-2016 17:37:55 America/Chicago] PHP Fatal error:  Uncaught exception 'mysqli_sql_exception' with message 'Access denied for user 'bibliografika_u'@'localhost' (using password: YES)' in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php:76
+Stack trace:
+#0 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(76): mysqli_connect('localhost', 'bibliografika_u', 'Sw2eg3DGUX', 'bibliografika_c...')
+#1 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(91): CI_DB_mysqli_driver->db_connect()
+#2 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(115): CI_DB_mysqli_driver->db_pconnect()
+#3 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB.php(148): CI_DB_driver->initialize()
+#4 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/core/Loader.php(346): DB('', NULL)
+#5 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php on line 76
+[21-Oct-2016 17:38:25 America/Chicago] PHP Fatal error:  Uncaught exception 'mysqli_sql_exception' with message 'Access denied for user 'bibliografika_u'@'192.163.233.86' (using password: YES)' in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php:76
+Stack trace:
+#0 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(76): mysqli_connect('200.85.152.184', 'bibliografika_u', 'Sw2eg3DGUX', 'bibliografika_c...')
+#1 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(91): CI_DB_mysqli_driver->db_connect()
+#2 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(115): CI_DB_mysqli_driver->db_pconnect()
+#3 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB.php(148): CI_DB_driver->initialize()
+#4 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/core/Loader.php(346): DB('', NULL)
+#5 /home/elaleph/public_html/bibliografika.com/cms/libs/c in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php on line 76
+[21-Oct-2016 17:38:41 America/Chicago] PHP Fatal error:  Uncaught exception 'mysqli_sql_exception' with message 'Access denied for user 'bibliografika_u'@'192.163.233.86' (using password: YES)' in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php:76
+Stack trace:
+#0 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(76): mysqli_connect('200.85.152.184', 'bibliografika_u', 'Sw2eg3DGUX', 'bibliografika_c...')
+#1 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(91): CI_DB_mysqli_driver->db_connect()
+#2 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(115): CI_DB_mysqli_driver->db_pconnect()
+#3 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB.php(148): CI_DB_driver->initialize()
+#4 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/core/Loader.php(346): DB('', NULL)
+#5 /home/elaleph/public_html/bibliografika.com/cms/libs/c in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php on line 76
+[21-Oct-2016 17:39:21 America/Chicago] PHP Fatal error:  Uncaught exception 'mysqli_sql_exception' with message 'Access denied for user 'bibliografika_u'@'192.163.233.86' (using password: YES)' in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php:76
+Stack trace:
+#0 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(76): mysqli_connect('200.85.152.184', 'bibliografika_u', 'Sw2eg3DGUX', 'bibliografika_c...')
+#1 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(91): CI_DB_mysqli_driver->db_connect()
+#2 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(115): CI_DB_mysqli_driver->db_pconnect()
+#3 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB.php(148): CI_DB_driver->initialize()
+#4 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/core/Loader.php(346): DB('', NULL)
+#5 /home/elaleph/public_html/bibliografika.com/cms/libs/c in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php on line 76
+[21-Oct-2016 17:39:25 America/Chicago] PHP Fatal error:  Uncaught exception 'mysqli_sql_exception' with message 'Access denied for user 'bibliografika_u'@'192.163.233.86' (using password: YES)' in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php:76
+Stack trace:
+#0 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(76): mysqli_connect('200.85.152.184', 'bibliografika_u', 'Sw2eg3DGUX', 'bibliografika_c...')
+#1 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(91): CI_DB_mysqli_driver->db_connect()
+#2 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(115): CI_DB_mysqli_driver->db_pconnect()
+#3 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB.php(148): CI_DB_driver->initialize()
+#4 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/core/Loader.php(346): DB('', NULL)
+#5 /home/elaleph/public_html/bibliografika.com/cms/libs/c in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php on line 76
+[21-Oct-2016 17:40:53 America/Chicago] PHP Fatal error:  Uncaught exception 'mysqli_sql_exception' with message 'Unknown column 'nombre' in 'order clause'' in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php:179
+Stack trace:
+#0 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(179): mysqli_query(Object(mysqli), 'SELECT * FROM l...')
+#1 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(453): CI_DB_mysqli_driver->_execute('SELECT * FROM l...')
+#2 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(299): CI_DB_driver->simple_query('SELECT * FROM l...')
+#3 /home/elaleph/public_html/bibliografika.com/cms/core/core/MY_Model.php(17): CI_DB_driver->query('SELECT * FROM l...')
+#4 /home/elaleph/public_html/bibliografika.com/cms/core/core/MY_Controller.php(175): MY_Model->get_query_list(Array, Array)
+#5 /home/elaleph/public_html/bibliografika.com/cms/core/core/MY_Controller.php(34): MY_Cont in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php on line 179
+[21-Oct-2016 18:46:23 America/Chicago] PHP Fatal error:  Uncaught exception 'mysqli_sql_exception' with message 'Unknown column 'foto' in 'field list'' in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php:179
+Stack trace:
+#0 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php(179): mysqli_query(Object(mysqli), 'SELECT `foto`\nF...')
+#1 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(453): CI_DB_mysqli_driver->_execute('SELECT `foto`\nF...')
+#2 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_driver.php(299): CI_DB_driver->simple_query('SELECT `foto`\nF...')
+#3 /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/DB_active_rec.php(963): CI_DB_driver->query('SELECT `foto`\nF...')
+#4 /home/elaleph/public_html/bibliografika.com/cms/core/controllers/jcrop_ajax.php(880): CI_DB_active_record->get()
+#5 /home/elaleph/public_html/bibliografika.com/cms/core/controllers/jcrop_aja in /home/elaleph/public_html/bibliografika.com/cms/libs/codeigniter/database/drivers/mysqli/mysqli_driver.php on line 179
+[21-Oct-2016 18:56:36 America/Chicago] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 399996 bytes) in /home/elaleph/public_html/bibliografika.com/cms/core/libraries/MY_Image_lib.php on line 80
+[21-Oct-2016 18:58:10 America/Chicago] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 399996 bytes) in /home/elaleph/public_html/bibliografika.com/cms/core/libraries/MY_Image_lib.php on line 80
+[14-Nov-2016 10:10:13 America/Chicago] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/elaleph/public_html/bibliografika.com/cms/core/controllers/novedades.php on line 62

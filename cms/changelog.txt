@@ -1,0 +1,411 @@
+CMS: Administrador de contenidos genérico
+
+Changelog
+
+Cambios sobre esta versión:
+- Ya se puede agregar una foto tipo jcropimage antes de haber creado el ítem 
+  (core/controllers/jcrop_ajax.php[save_photo() - upload_photo() - crop_photo()] - core\libraries\functions.php [getJcropImage()] -
+  core\core\MY_Controller.php[prepare_add_fields() - doSave()])
+
+- Ahora se pueden listar los campos tipo "images", "jcropimage" y "gallery"
+  (core\views\includes\lista\campos.php - core\models\fotos_model.php [+fotos_galeria()])
+
+1.6
+(2016-06-23)
+
+Características
+- Agrego opcion "idiomas" para los campos. Si es true se genera el campo automáticamente
+  en todas las variantes según los idiomas definidos al principio de MY_Controller. Los campos de
+  los modelos hay que cargarlos manualmente.
+  (core/core/MY_Controller.php [+cargar_config()])
+
+- Ahora en los controladores es opcional definir el modelo.
+  El paginador está deshabilitado por defecto.
+  (core/core/MY_Controller.php [cargar_config()])
+
+- Agrego opción "es_filtro" para los campos form_dropdown y form_dropdown_ajax. Si es true filtra
+  todos los campos que tienen el atributo data-filtro igual a la opción seleccionada.
+  (core/views/includes/footer.php - core/js/functions.js [filtrar()] -
+  core/libraries/functions.php [make_form()] - core/views/includes/lista/campos.php -
+  core/views/includes/lista/cabecera.php - MY_Controller.php [prepare_add_fields() - prepare_edit_fields()])
+
+- Ya no muestro "en Español" en el listado.
+  (core/core/MY_Controller.php [cargar_config()] - core\views\includes\lista\cabecera.php)
+
+- Agrego la opción "=" para los campos "date" t agrego el botón "limpiar" para resetear la búsqueda
+  (core/core/MY_Controller.php [getFilters()])
+
+- Ahora se puede agregar en la URL de las acciones cualquier propiedad de los objetos (antes era solo {id}).
+  (core\views\includes\lista\acciones.php)
+
+- Agrego DOCUMENT_ROOT y CONTROLLER en el header de todas las vistas. Lo quito de functions.js
+  (core\views\includes\head.php - core\js\functions.js)
+
+- Nueva opción para configurar la URL de retorno (después de crear o editar un ítem)
+  (core\views\includes\head.php - core\js\functions.js -core\core\MY_Controller [_generar_data('cabecera')])
+
+- Nuevo campo "mapa"
+  (core\libraries\functions.php[make_form()]- core\core\MY_Controller.php[doSave()] - cms\core\css\theme_synapsis.css -
+  core\js\jquery.geolocation.edit.min.js)
+
+- Los checkbox de los listados ahora son editables
+  ( core\core\MY_Controller.php[+ actualizarCheckbox()] - cms\core\css\theme_synapsis.css -
+  core\js\vistas\lista\checkbox_ajax.js - core\views\includes\lista\acciones.php -
+  core\views\lista.php - core\views\includes\lista\campos.php)
+
+
+
+Correcciones
+- Ajusto el estilo del código de todos los controladores y actualizo la plantilla
+  (core/controllers/*)
+
+- Mejoro el manejo de los errores.
+  (core/core/MY_Controller.php[ errorHeader() - delete() - doSave()])
+
+- Corrijo el CHARSET de la configuración de la base de datos. Pasó de UTF-8 a utf8
+  (core/config/database.php)
+
+- Los campos tipo "date" ahora tienen un ancho fijo para no mostrarse en 2 líneas
+  cuando hay muchas columnas.
+  (core/core/MY_Controller.php [cargar_config()] - core\views\includes\lista\cabecera.php)
+
+- Ajusto el drag & drop de las listas para que solo se aplique sobre un nuevo ícono y no
+  sobre toda la fila (antes a veces cuandque querías clicear en alguna acción se activaba
+  el Drag & Drop).
+  (core\views\includes\lista\cabecera.php - core\views\lista.php - core\css\theme_synapsis.css)
+
+- Paso por POST las variables del AJAX actualizarOrden() para que no se rompa cuando hay
+  demasiados elementos para ordenar.
+  (core\views\lista.php - core/core/MY_Controller.php [actualizarOrden()])
+
+- Corrijo los estilos del paginador para cuando tiene muchas páginas
+  (core\views\lista.php - core\css\theme_synapsis.css)
+
+- Ajusto el Drag & Drop para que sea más cómodo de usar: habilito selección de texto,
+  pongo un placeholder y muestro mensajes.
+  (core\views\lista.php - core\css\theme_synapsis.css)
+
+- Corrigo problema cuando se filtraba sin valor. Deshabilito el filtro cuando no se le pasa un valor.
+  (core/core/MY_Controller.php [getFilters()])
+
+- Corrigo el orden del listado cuando se filtra. Ahora siempre se le agregan los criterios de orden por defecto.
+  (core/controllers/MY_Controller.php [getOrders()])
+
+- Ajusto JS del listado AJAX para que cargue cuando se le asigna un valor por
+  defecto a la lista padre relacionada.
+  (core/js/functions.js [ajaxListarOpciones()])
+
+- Transformo dropdown_ajax en form_dropdown en el buscador para que no se rompa
+  (core/views/includes/lista/buscador.php)
+
+- Quito los scripts JS de la vista lista.php
+  (core/views/lista.php - +core/js/vistas/ordenar.js)
+
+- Agrego una validación para que la opción "filter" de los campos sea opcional.php
+  (core\views\includes\lista\buscador.php)
+
+- Mejoro la compatibilidad del CMS con futuras versiones de PHP:
+  > Uso __construct()
+  (core\libraries\configvars.php - core\libraries\MY_Image_lib.php - core\libraries\xlswriter.php)
+
+  > No devuelvo una referencia
+  (libs\codeigniter\core\Common.php[get_config()])
+
+  > Uso mysqli en vez de mysql
+  (core\config\database.php)
+
+  > No uso arrays para construir variables dinámicas o le agrego {}
+  (core\views\includes\lista\campos.php - core\core\MY_Controller.php)
+
+
+
+1.5.4
+(2016-06-16)
+
+Correcciones
+- Los dropdowns simples ahora pueden tener cualquier cantidad de atributos HTML
+  (core/libraries/functions.php [make_form()])
+
+- Agrego ícono pdf.png y report.png (para la ficha de propiedad)
+  (core/css/img/*, core/css/theme-synapsis.css)
+
+- Actualizo función filtrar() (Ej: para filtrar campos según el tipo de inmueble)
+  (core/views/includes/footer.php)
+
+
+1.5.3
+(2016-05-17)
+
+Correcciones
+- Ajusto los estilos de los mensajes de los drag & drop de los archivos cargados por ajax
+  (core/js/fileuploader/fileuploader.css)
+
+- Corrijo el form_hidden que se contruía mal (se imprimían varios campos ocultos)
+    (core/libraries/functions.php [make_form()])
+
+- Corrijo error por variable $figura_original sin definir
+    core/controllers/gallery_ajax.php [generate_sizes()])
+
+
+
+1.5.2
+(2016-04-08)
+
+Características
+- Actualizo la plantilla de controladores
+  (core/controllers/_plantilla.php)
+
+- Muestro un '-' en el listado cuando el campo no tiene valor
+  (core/views/includes/lista/campos.php)
+
+
+
+Correcciones
+- Arreglo form_dropdown_ajax que no se cargaba automáticamente onLoad
+  (core/libraries/functions.php [make_form()])
+
+- Arreglo CSS de las pestañas
+  (core/css/theme_synapsis.css)
+
+
+
+1.5.1
+(2016-04-07)
+
+Características
+- Actualizo JCrop a la versión 1.5 (agrega soporte para imágenes con medidas automáticas)
+(core/controllers/jcrop_ajax.php - core/js/images.js - core/libraries/functions.php)
+
+- Valor por defecto para campos multiple_select_simple
+(core/libraries/functions.php [make_form()])
+
+- Convierto multiple_select_simple en form_dropdown en el buscador de las listas
+(core/views/includes/lista/buscador.php)
+
+- Muestro una leyenda en las listas que se pueden ordenar
+(core/views/lista.php)
+
+- Nuevo método clonar() genérico
+(core/core/MY_Controller.php)
+
+
+Correcciones
+- Traduzco los textos de la interfaz del uploader de las galerías
+(core/controllers/gallery_ajax.php [load_uploader()])
+
+- Corregido form_multiselect_simple
+  (core/core/MY_Controller.php [prepare_edit_fields()])
+
+- Corrijo problema de seguridad en _cleanResourses()
+  (core/core/MY_Controller.php [_cleanResourses()])
+
+
+
+1.5.0
+(2016-02-17)
+
+Correcciones
+
+-Cualquier acción que elimine ahora redirije a la URL anterior REAL y no a una armada
+(core/core/MY_Controller.php)
+
+-Ajusto el CSS del mensaje de error
+(core/css/theme_synapsis.css)
+
+-Remuevo /?/ de la URL que devuelve la función current_url()
+(core/helpers/url_helper.php)
+
+
+Características
+-Botón opcional para descargar listado en formato CSV
+(core/core/MY_Controller.php [exportCSV() - _getListFields() - _getExportFields() - getFilters() - _generar_data()] -
+ core/views/includes/lista/buscador.php - core/views/includes/lista/boton_csv.php - core/views/lista.php - core/views/includes/head.php -
+ core/css/theme_synapsis.css)
+
+-Nueva propiedad "opciones" para los campos date y datetime para pasarle opciones al datepiker.
+(core/libraries/Functions.php [make_form()])
+
+-Opción categoría en el controlador Menu para poder crear varias pestañas que respondan al mismo
+controlador pero diferenciando el contenido por una categoría.
+(core/models/Menu_model.php - core/controllers/menu.php - core/views/menu.php -
+core/core/MY_Controller.php [getFilters() - _get_uriParameters() - doSave()])
+
+-Convierto el campo upload_file en un campo AJAX
+(core/core/MY_Controller.php - core/libraries/functions.php - core/libraries/FileUploader.php -
+core/third_party/qqUploader.php - core/models/archivos_model.php)
+
+-Actualizo MY_Controller::_cleanResources() para eliminar los archivos y galerías relacionados a un ítem cuando se lo elimina
+(core/core/MY_Controller.php)
+
+-Si entrás al administrador desde alguna página interna y te redirige al login, una vez logueado ahora te redirige
+a la página a la que habías intentado entrar en un principio
+(core/controllers/login.php - core/libraries/auth.php
+
+-Traducción de los mensajes de CodeIgniter
+(core/config/config.php - ../libs/codeigniter/language/spanish/*)
+
+-El campo para subir archivos ya no depende del ID del controlador que sube el archivo y muestra los errores
+(core/core/MY_Controller.php - core/libraries/functions.php - core/models/Archivos_model.php)
+
+-Actualizo el qqFileUploader a la versión 2.0 y traduzco todos los textos de la UI
+(core/js/fileuploader/*)
+
+-Creo las constantes IMAGES_RESOURCES_PATH, FILES_RESOURCES_PATH y GALLERIES_RESOURCES_PATH
+(core/core/MY_Controller.php - core/libraries/functions.php)
+
+
+
+
+1.4.1
+(2016-01-18)
+
+Correcciones
+-Quito los "?>" de cierre y el comentario de apertura de todos los modelos
+(core/models/*)
+
+-Quito el comentario de apertura de todos los controladores
+(core/controllers/*)
+
+-Agrego favicon
+(core/views/includes/head.php)
+
+
+Características
+-Actualizo JCrop a la versión 1.4
+(core/controllers/jcrop_ajax.php - core/js/images.js - core/libraries/functions.php)
+
+-Nueva plantilla con tipos de campos
+(core/controllers/_plantilla.php)
+
+-Muestro error cuando no se puede crear la carpeta para una galería
+(core/controllers/gallery_ajax.php)
+
+-Agrego restricciones con JS para los campos
+(core/views/includes/footer.php)
+
+-El texto "Agregar" de los listados ahora es configurable
+(core/views/lista.php - core/core/MY_Controller.php)
+
+-Opción para activar la función para ordenar los listados
+(core/views/lista.php - core/core/MY_Controller.php)
+
+
+
+1.4
+(2015-11-20)
+
+Correcciones
+-Cambio el separador"," por "-" porque al servidor no le gusta
+(core/core/MY_Controller.php - core/views/lista.php)
+
+-Elimino css basura
+(core/css/*)
+
+
+
+Características
+-Fecha actual como valor por defecto para el campo tipo datetime
+(core/libraries/functions.php)
+
+
+
+1.3
+(2015-10-30)
+
+Características
+-Nuevo campo form_dropdown_ajax (Select que se carga con ajax en base al valor de otro select).
+(core/core/MY_Controller.php - core/libraries/functions.php - core/js/functions.php)
+
+-Nuevo campo form_multiselect_simple_ajax (Select múltiple que se carga con ajax en base al valor de otro select y que guarda todos los valores en un solo campo de la base de datos como una cadena de elementos separados por comas).
+(core/core/MY_Controller.php - core/libraries/functions.php - core/js/functions.php)
+
+-Funcionalidad para reordenar los elementos de los listados con Drag & Drop
+(core/core/MY_Controller.php - core/views/lista.php)
+
+-Posibilidad de agregar una marca de agua a todas las imágenes de una galería
+(core/core/libraries/functions.php - core/js/gallery.js - core/controllers/gallery_ajax.php)
+
+-Nuevo gestor de galerías: crea todos los tamaños de las imágenes de todas las galerías, con o sin marca de agua, sobrescribiendo o no las imágenes
+(core/core/libraries/functions.php - core/js/gallery.js - core/controllers/gallery_ajax.php)
+
+
+Correciones
+-Arreglo paginador
+(core/core/MY_Controller.php)
+
+
+
+1.2
+(2015-10-26)
+
+Características
+-Hago editable la vistas principales (/add/edit/lista) desde la configuración de cada controlador. Ya no hay necesidad de sobrecargar métodos.
+(core/core/MY_Controller.php)
+
+-Agrego las opciones 'comentario', 'titulo' y 'html_extra' a la configuración de los campos de los controlers para hacer las vistas más personalizables.
+(core/views/form.php)
+
+
+Correciones
+-Coloco las vistas de cabecera y footer dentro de la carpeta "includes"
+(core/core/MY_Controller.php)
+
+-Unifico el formato del código para todos los controladores
+(core/controllers/*)
+
+
+
+1.1
+(2015-09-25)
+
+Características
+-Ahora los filtros de los listados están en un include
+(views/lista.php)
+
+
+Correciones
+-Desactivo la caché de las peticiones AJAX para evitar que no se vea actualizado el contenido del administrador en algunos servidores
+(views/header.php - views/header_popup.php)
+
+-Los campos textarea ahora se muestran como input_text
+(views/includes/buscador.php)
+
+-No muestro el buscador cuando no hay definido ningún campo para filtrar
+(views/includes/buscador.php)
+
+
+
+1.0
+(2015-09-10)
+
+Características
+-Removido el "/index.php/" de las URL. Ya no es obligatorio.
+(.htaccess - config/config.php)
+
+-Cambio de formato en las URLs en el menú, listados y forms
+(controller/menu.php - views/*)
+
+-Los superadmin pueden verse en el listado de admins y pueden crear nuevos superadmins
+(controllers/admins.php - views/lista_admins.php)
+
+-Nueva pestaña para modificar el menú y nuevo código de color para los distintos tipos de visibilidad de las pestañas.
+
+-Posibilidad de mostrar un valor por defecto para los inputs_text y form_dropdowns
+
+
+Correciones
+-Ahora se muestran bien los caracteres especiales leídos de una BD en UTF-8
+(libraries/functions.php)
+
+-Corrijo los filtros del listado que buscaban siempre por todos los criterios
+(views/lista.php)
+
+-Extiendo el límite de caracteres de los campos de los Admins para que no recorten la contraseña ni el usuario
+(controllers/admins.php)
+
+-Ubico el botón "Agregar" arriba a la derecha en vez de abajo
+(css/stiles-theme.css - views/lista.php)
+
+-Correjido error que aparece cuando en el listado se muestra un campo de tipo dropdown sin un valor asignado
+(views/lista.php)
+

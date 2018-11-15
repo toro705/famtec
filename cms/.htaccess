@@ -1,0 +1,26 @@
+RewriteEngine on
+
+
+
+RewriteBase /cms/
+
+
+
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+
+
+
+<IfModule mod_expires.c>
+
+# Disable caching for this directory mod_expires for this directory
+
+ExpiresActive off
+
+</IfModule>
+

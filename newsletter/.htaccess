@@ -1,0 +1,17 @@
+######################################################################
+# REESCRITURAS                                                       #
+######################################################################
+
+DirectoryIndex index.html index.php
+
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteBase /newsletter/
+RewriteRule ^novedades/([0-9]+)/?$               novedades/template/index.php?id=$1   [QSA,L]
+
+# Deshabilito la compresión de los newsletters para que carguen bien en Synpasismail
+RewriteRule ^(.*)$ $1 [NS,E=no-gzip:1,E=dont-vary:1]
+
+# Resuelvo como archivo .php las URL sin extensión
+RewriteRule ^([^/.]+)$ $1.php [QSA,L]

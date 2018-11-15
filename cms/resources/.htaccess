@@ -1,0 +1,5 @@
+<IfModule mod_expires.c>
+# Enable caching for this directory mod_expires for this directory
+ExpiresActive on
+</IfModule>
+
